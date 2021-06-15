@@ -1,3 +1,7 @@
+import logging
+
+logging.basicConfig(level=logging.DEBUG)
+
 while True:
     operation = int(input(
         "Podaj działanie, posługując się odpowiednią liczbą: 1 Dodawanie, 2 Odejmowanie, 3 Mnożenie, 4 Dzielenie:"))
@@ -35,10 +39,10 @@ while True:
 
     def operation_list(x):
         return {
-            1: [addition_function, "Dodaję: "],
-            2: [subtraction_function, "Odejmuję: "],
-            3: [multiplication_function, "Mnożę: "],
-            4: [division_function, "Dzielę: "],
+            1: [addition_function, "Dodaję:"],
+            2: [subtraction_function, "Odejmuję:"],
+            3: [multiplication_function, "Mnożę:"],
+            4: [division_function, "Dzielę:"],
         }[x]
 
 
@@ -47,5 +51,5 @@ while True:
     operation_result = dictionary_description[0]
     operation_name = dictionary_description[1]
 
-    print(operation_name, first_number, " i ", second_number)
-    print("Wynik to: ", operation_result)
+    logging.info(f"{operation_name} {first_number} i {second_number}")
+    logging.info(f"Wynik to: {operation_result}")
