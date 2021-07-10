@@ -3,20 +3,29 @@ import logging
 logging.basicConfig(level=logging.DEBUG)
 
 
-def addition(a, b):
+def addition(a: int, b: int):
     return a + b
 
 
-def subtraction(a, b):
+def subtraction(a: int, b: int):
     return a - b
 
 
-def division(a, b):
+def division(a: int, b: int):
     return a / b
 
 
-def multiplication(a, b):
+def multiplication(a: int, b: int):
     return a * b
+
+
+def operation_list(x: int):
+    return {
+        1: [addition, "Dodawanie", "Dodaję"],
+        2: [subtraction, "Odejmowanie", "Odejmuję"],
+        3: [multiplication, "Mnożenie", "Mnożę"],
+        4: [division, "Dzielenie", "Dzielę"],
+    }[x]
 
 
 while True:
@@ -28,15 +37,15 @@ while True:
 
     def operation_list(x):
         return {
-            1: [addition(first_number, second_number), "Dodawanie", "Dodaję"],
-            2: [subtraction(first_number, second_number), "Odejmowanie", "Odejmuję"],
-            3: [multiplication(first_number, second_number), "Mnożenie", "Mnożę"],
-            4: [division(first_number, second_number), "Dzielenie", "Dzielę"],
+            1: [addition, "Dodawanie", "Dodaję"],
+            2: [subtraction, "Odejmowanie", "Odejmuję"],
+            3: [multiplication, "Mnożenie", "Mnożę"],
+            4: [division, "Dzielenie", "Dzielę"],
         }[x]
 
 
     dictionary_description = operation_list(operation)
-    operation_result = dictionary_description[0]
+    operation_result = dictionary_description[0](first_number, second_number)
     operation_name = dictionary_description[1]
     operation_function = dictionary_description[2]
 
